@@ -1,5 +1,7 @@
 (ns thefox.server
-  (:require [thefox.request]))
+  (:require [thefox.core :refer [:recipient-keys]]
+            [thefox.request]
+            [thefox.util :refer [:into-vec :uniq-vec]]))
 
 ;;
 ; Handles server-server communications (federation)
@@ -10,6 +12,15 @@
   ([body headers]
     ; TODO
     ))
+
+(defn recipients
+  "Extracts the recipients from an Activity"
+  [{:keys [object] :as activity}]
+  (into {}
+    (map (fn [[k v]] [k (uniq-vec v)])
+      (merge-with into-vec
+        (select-keys activity recipient-keys)
+        (select-keys object recipient-keys)))))
 
 (defn deref
   "Dereferences an object based on its ID/URI.
