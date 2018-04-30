@@ -11,7 +11,10 @@
   '(Application Group Organization Person Service))
 
 (def object-types
-  ; REVIEW: Links might be better of separate?
-  "List of Object and Link types"
-  '(Article Audio Document Event image Note Page Place Profile Relationship
+  "List of Object types"
+  '(Article Audio Document Event Image Note Page Place Profile Relationship
     Tombstone Video))
+
+(def link-types
+  "List of Link types"
+  '(Link Mention))
