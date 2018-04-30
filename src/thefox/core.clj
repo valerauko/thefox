@@ -18,3 +18,7 @@
 (def link-types
   "List of Link types"
   '(Link Mention))
+
+(def recipient-keys
+  "List of keys that may hold recipients"
+  '(:to :bto :cc :bcc :audience))

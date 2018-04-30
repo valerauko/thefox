@@ -24,7 +24,7 @@
     ; these fields should be copied if present
     (select-keys object [:published])
     ; these fields must be copied if present
-    (select-keys object [:to :bto :cc :bcc :audience])))
+    (select-keys object recipient-keys)))
 
 (defn consume
   "Consumes an incoming client request."
