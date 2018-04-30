@@ -12,10 +12,8 @@
 ; TODO: validation for missing fields
 
 (defn wrap-create
-  """
-  When an Object is POSTed to an Actor's Outbox,
-  it must be wrapped in a Create Activity.
-  """
+  "When an Object is POSTed to an Actor's Outbox,
+  it must be wrapped in a Create Activity."
   [object]
   (merge
     activity/skeleton
@@ -29,9 +27,7 @@
     (select-keys object [:to :bto :cc :bcc :audience])))
 
 (defn consume
-  """
-  Consumes an incoming client request.
-  """
+  "Consumes an incoming client request."
   ([body] (consume body {})
   ; headers are not used at this point, but will be for signature validation
   ([body _headers]
