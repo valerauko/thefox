@@ -3,8 +3,7 @@
             [thefox.core :refer [recipient-keys]]))
 
 (def create
-  {
-    ; TODO: should inject language when applicable as
+  { ; TODO: should inject language when applicable as
     ; { "@context" ["https://www.w3.org/ns/activitystreams"
     ;               { "@language" "en" }] }
     "@context" "https://www.w3.org/ns/activitystreams"
