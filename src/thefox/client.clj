@@ -5,10 +5,9 @@
             [cheshire.core :refer [parse-string]]))
 
 ;;
-; Handles client-server communications
+; Handles stuff incoming from clients
 ; Only considering incoming POST.
 ; https://www.w3.org/TR/activitypub/#client-to-server-interactions
-
 ; TODO: validation for missing fields
 
 (defn wrap-create
