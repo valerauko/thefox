@@ -1,7 +1,6 @@
 (ns thefox.server
-  (:require [thefox.core :refer [:recipient-keys]]
-            [thefox.request]
-            [thefox.util :refer [:into-vec :uniq-vec]]))
+  (:require [thefox.core :refer [recipient-keys]]
+            [thefox.request :as request]))
 
 ;;
 ; Handles server-server communications (federation)
@@ -17,7 +16,10 @@
   "Dereferences an object based on its ID/URI.
   If provided an URI, look that up.
   Otherwise, dereference the :id of the provided object."
+  ; TODO: handle local things
+  ; REVIEW: it collides with clojure's deref, is that a problem?
+  ;         if so, what to name it instead?
   [object]
   (if (string? object)
-    ; TODO: (request object)
+    (request/parse object)
     (deref (:id object))))
