@@ -2,9 +2,6 @@
   (:require [thefox.util :refer [into-vec uniq-vec]]
             [thefox.core :refer [recipient-keys]]))
 
-;;
-; Ref. https://www.w3.org/TR/activitystreams-vocabulary
-
 (def skeleton
   {
     ; TODO: should inject language when applicable as
