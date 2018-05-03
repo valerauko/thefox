@@ -1,4 +1,4 @@
-# The Fox
+# The Fox [![Build Status](https://travis-ci.com/valerauko/thefox.svg?branch=master)](https://travis-ci.com/valerauko/thefox)
 
 A Clojure library to handle ActivityPub interactions.
 
