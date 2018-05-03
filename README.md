@@ -1,10 +1,10 @@
-# thefox
+# The Fox
 
 A Clojure library to handle ActivityPub interactions.
 
 ## Usage
 
-FIXME
+Not very useful at this point.
 
 ## License
 
