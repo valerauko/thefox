@@ -10,3 +10,12 @@
     ;               { "@language" "en" }] }
     "@context" "https://www.w3.org/ns/activitystreams"
     :type "Activity" })
+
+(defn recipients
+  "Extracts the recipients from an Activity"
+  [{:keys [object] :as activity}]
+  (into {}
+    (map (fn [[k v]] [k (uniq-vec v)])
+      (merge-with into-vec
+        (select-keys activity recipient-keys)
+        (select-keys object recipient-keys)))))
