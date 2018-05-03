@@ -3,7 +3,7 @@
 (defn in?
   "Does coll contain elem?"
   [coll elem]
-  (some #(= elm %) coll))
+  (some #(= elem %) coll))
 
 (defn vectorize
   "If x is not a collection, wraps it in a vector."

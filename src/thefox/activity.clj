@@ -1,4 +1,6 @@
-(ns thefox.activity)
+(ns thefox.activity
+  (:require [thefox.util :refer [into-vec uniq-vec]]
+            [thefox.core :refer [recipient-keys]]))
 
 ;;
 ; Ref. https://www.w3.org/TR/activitystreams-vocabulary
@@ -18,4 +20,4 @@
     (map (fn [[k v]] [k (uniq-vec v)])
       (merge-with into-vec
         (select-keys activity recipient-keys)
-        (select-keys object recipient-keys)))))
+        (if (coll? object) (select-keys object recipient-keys))))))
