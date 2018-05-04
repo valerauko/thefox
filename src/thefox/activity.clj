@@ -1,13 +1,6 @@
 (ns thefox.activity
   (:require [thefox.util :refer [into-vec uniq-vec]]
-            [thefox.core :refer [recipient-keys]]))
-
-(def create
-  { ; TODO: should inject language when applicable as
-    ; { "@context" ["https://www.w3.org/ns/activitystreams"
-    ;               { "@language" "en" }] }
-    "@context" "https://www.w3.org/ns/activitystreams"
-    :type "Create" })
+            [thefox.core :refer [default-context recipient-keys]]))
 
 (defn recipients
   "Extracts the recipients from an Activity"

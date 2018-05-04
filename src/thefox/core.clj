@@ -23,3 +23,7 @@
 (def recipient-keys
   "List of keys that may hold recipients"
   '(:to :bto :cc :bcc :audience))
+
+(def default-context
+  "The default ActivityPub context"
+  {"@context" "https://www.w3.org/ns/activitystreams"})
