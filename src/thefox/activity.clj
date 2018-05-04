@@ -10,3 +10,14 @@
       (merge-with into-vec
         (select-keys activity recipient-keys)
         (if (coll? object) (select-keys object recipient-keys))))))
+
+(defn create
+  "Makes a Create Activity for an Object"
+  [object, options]
+  (merge
+    { :type "Create"
+      :object object }
+    (or (get object "@context") default-context)
+    (select-keys object recipient-keys)
+    (select-keys object [:published])
+    options))
