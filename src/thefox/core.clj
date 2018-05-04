@@ -26,4 +26,4 @@
 
 (def default-context
   "The default ActivityPub context"
-  {"@context" "https://www.w3.org/ns/activitystreams"})
+  { "@context" "https://www.w3.org/ns/activitystreams" })

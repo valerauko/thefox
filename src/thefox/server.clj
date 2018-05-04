@@ -12,14 +12,12 @@
     ; TODO
     ))
 
-(defn deref
+(defn lookup
   "Dereferences an object based on its ID/URI.
   If provided an URI, look that up.
   Otherwise, dereference the :id of the provided object."
   ; TODO: handle local things
-  ; REVIEW: it collides with clojure's deref, is that a problem?
-  ;         if so, what to name it instead?
   [object]
   (if (string? object)
     (request/parse object)
-    (deref (:id object))))
+    (lookup (:id object))))

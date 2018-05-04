@@ -4,8 +4,8 @@
 ;;
 ; ActivityPub Actors
 
-(defn deref
+(defn lookup
   "Dereferences an Actor.
   Looks up the Actor by their ID/URI and returns the Actor retrieved."
   [actor]
-  (server/deref actor))
+  (server/lookup actor))
