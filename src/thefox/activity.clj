@@ -20,6 +20,8 @@
     { :type type :actor actor :object object }
     options))
 
+; REVIEW: is there some Clojure syntax to make these make-activity defns more concise?
+
 (defn announce
   [actor object options]
   (make-activity "Announce" actor object options))
@@ -60,12 +62,14 @@
 ; Like/Dislike are aliased.
 ; https://www.w3.org/TR/activitystreams-vocabulary/#inverse
 (defn upvote
+  "Aliased as like"
   [actor object options]
   (make-activity "Like" actor object options))
 
 (def like upvote)
 
 (defn downvote
+  "Aliased as dislike"
   [actor object options]
   (make-activity "Dislike" actor object options))
 
@@ -80,7 +84,39 @@
   (make-activity "Read" actor object options))
 
 (defn view
+  "Aliased as watch"
   [actor object options]
   (make-activity "View" actor object options))
 
 (def watch view)
+
+(defn follow
+  [actor object options]
+  (make-activity "Follow" actor object options))
+
+(defn block
+  [actor object options]
+  (make-activity "Block" actor object options))
+
+(defn ignore
+  "Aliased as mute"
+  [actor object options]
+  (make-activity "Ignore" actor object options))
+
+(def mute ignore)
+
+; The edge cases between Add, Move and Remove are really fuzzy.
+; The spec doesn't make things clear, so just try to use them
+; in a way that makes common sense.
+(defn add
+  "For now just use options to pass in target and origin"
+  [actor object options]
+  (make-activity "Add" actor object options))
+
+(defn move
+  [actor object options]
+  (make-activity "Move" actor object options))
+
+(defn remove
+  [actor object options]
+  (make-activity "Remove" actor object options))
