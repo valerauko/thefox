@@ -17,7 +17,7 @@
 (defn raw-keys
   "Generates raw keys. It's a Java object so don't touch it unless you know
   what you're doing."
-  []
+  [strength]
   (let [generator (doto (KeyPairGenerator/getInstance "RSA")
                     (.initialize 1024))]
     (.generateKeyPair generator)))
@@ -40,17 +40,20 @@
     (.toString string-writer)))
 
 (defn generate-keypair
-  "Generates a private-public keypair and returns it in a hashmap of strings."
-  []
-  (let [^KeyPair keys (raw-keys)]
-    { :public (-> keys .getPublic key-to-string)
-      :private (-> keys .getPrivate key-to-string)}))
+  "Generates a private-public keypair and returns it in a hashmap of strings.
+  You can set the strength (length) of the key generated. Defaults to 1024."
+  ([] (generate-keypair 1024))
+  ([strength]
+    (let [^KeyPair keys (raw-keys strength)]
+      { :public (-> keys .getPublic key-to-string)
+        :private (-> keys .getPrivate key-to-string)})))
 
 (defn verify
   "Expects a base64 encoded signature"
   [^String signature ^String actual-data public-key]
   (let [sig (doto (Signature/getInstance algo)
-                  (.initVerify ^org.bouncycastle.jce.provider.JCERSAPublicKey (string-to-key public-key))
+                  (.initVerify ^org.bouncycastle.jce.provider.JCERSAPublicKey
+                    (string-to-key public-key))
                   (.update (.getBytes actual-data)))]
     (.verify sig
       (.decode (Base64/getDecoder) signature))))
