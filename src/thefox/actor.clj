@@ -1,5 +1,5 @@
 (ns thefox.actor
-  (:require [thefox.server :as :server]))
+  (:require [thefox.server :as server]))
 
 ;;
 ; ActivityPub Actors
