@@ -1,13 +1,10 @@
 (ns thefox.object
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s]
+            [thefox.util :refer [str-uri?]]))
 
 ;;
 ; ActivityPub Objects and Links
 
-(defn str-uri?
-  [string]
-  (try (uri? (new java.net.URI string))
-       (catch Exception e false)))
 
 (def context
   "Has to be either an URI, or an array of URIs and maps
