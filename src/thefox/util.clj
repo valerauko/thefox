@@ -19,8 +19,3 @@
   "Turns a thing into a vector of unique things."
   [x]
   (distinct (vectorize x)))
-
-(defn str-uri?
-  [string]
-  (try (uri? (new java.net.URI string))
-       (catch Exception e false)))
