@@ -1,13 +1,17 @@
 (ns thefox.activity
   (:require [thefox.util :refer [into-vec uniq-vec]]
-            [thefox.core :refer [recipient-keys]]))
+            [thefox.core :refer [recipient-keys activity-types]]
+            [thefox.object :as obj]))
 
-(def create
-  { ; TODO: should inject language when applicable as
-    ; { "@context" ["https://www.w3.org/ns/activitystreams"
-    ;               { "@language" "en" }] }
-    "@context" "https://www.w3.org/ns/activitystreams"
-    :type "Create" })
+(def activity
+  (merge obj/object
+    {:type (into #{} activity-types)
+     :actor obj/actor?
+     :object obj/object?
+     :target obj/object?
+     :result obj/object?
+     :origin obj/object?
+     :instrument obj/object?}))
 
 (defn recipients
   "Extracts the recipients from an Activity"
