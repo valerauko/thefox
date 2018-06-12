@@ -16,6 +16,10 @@
   '("Article" "Audio" "Document" "Event" "Image" "Note" "Page" "Place" "Profile"
     "Relationship" "Tombstone" "Video"))
 
+(def collection-types
+  "List of Collection types"
+  '("Collection" "OrderedCollection" "CollectionPage" "OrderedCollectionPage"))
+
 (def link-types
   "List of Link types"
   '("Link" "Mention"))
