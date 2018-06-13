@@ -1,17 +1,6 @@
 (ns thefox.activity
   (:require [thefox.util :refer [into-vec uniq-vec]]
-            [thefox.core :refer [recipient-keys activity-types]]
-            [thefox.object :as obj]))
-
-(def activity
-  (merge obj/object
-    {:type (into #{} activity-types)
-     :actor obj/actor?
-     :object obj/object?
-     :target obj/object?
-     :result obj/object?
-     :origin obj/object?
-     :instrument obj/object?}))
+            [thefox.core :refer [recipient-keys activity-types]]))
 
 (defn recipients
   "Extracts the recipients from an Activity"

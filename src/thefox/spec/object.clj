@@ -7,7 +7,7 @@
             [thefox.spec.collection]))
 
 ; HACK: you can't type in keywords containing @ so it takes hacky workarounds
-(def context-kw (keyword (str *ns*) "@context"))
+(def context-kw "thefox.spec.object" "@context"))
 ; HACK: worse even while spec accepts it when provided to register a spec,
 ; it can't look it up without using eval around the (s/def)
 (eval `(s/def ~context-kw (uri-or-things? map?)))
