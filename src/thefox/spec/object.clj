@@ -54,13 +54,13 @@
           ]))
 
 (s/def ::attachment (uri-or-things? ::object))
-(s/def ::context ::object)
-(s/def ::inReplyTo ::object)
-(s/def ::preview ::object)
+(s/def ::context (uri-or-thing? ::object))
+(s/def ::inReplyTo (uri-or-thing? ::object))
+(s/def ::preview (uri-or-thing? ::object))
 (s/def ::tag (uri-or-things? ::object))
 
-(s/def ::image :thefox.spec.image/image)
-(s/def ::icon :thefox.spec.image/image)
+(s/def ::image (uri-or-thing? :thefox.spec.image/image))
+(s/def ::icon (uri-or-thing? :thefox.spec.image/image))
 
 (s/def ::attributedTo (uri-or-things? :thefox.spec.actor/actor))
 (s/def ::audience (uri-or-things? :thefox.spec.actor/actor))
@@ -70,7 +70,7 @@
 (s/def ::cc (uri-or-things? :thefox.spec.actor/actor))
 (s/def ::bcc (uri-or-things? :thefox.spec.actor/actor))
 
-(s/def ::location ::object)
+(s/def ::location (uri-or-thing? ::object))
 (s/def ::url (uri-or-things? :thefox.spec.link/link))
 
-(s/def ::replies :thefox.spec.collection/collection)
+(s/def ::replies (uri-or-thing? :thefox.spec.collection/collection))

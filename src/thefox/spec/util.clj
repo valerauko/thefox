@@ -1,5 +1,6 @@
 (ns thefox.spec.util
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s]
+            [thefox.spec.link]))
 
 (defn str-uri?
   "Checks whether a string can be a valid URI."
@@ -12,6 +13,7 @@
   [f]
   (s/or
     :uri str-uri?
+    :link :thefox.spec.link/link
     :thing f))
 
 (defn uri-or-things?

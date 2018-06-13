@@ -1,5 +1,6 @@
 (ns thefox.spec.collection
   (:require [clojure.spec.alpha :as s]
+            [thefox.spec.util :refer :all]
             [thefox.spec.collection]))
 
 (s/def ::type "CollectionPage")
@@ -12,4 +13,4 @@
 (s/def ::last ::collectionPage)
 (s/def ::next ::collectionPage)
 (s/def ::pref ::collectionPage)
-(s/def ::partOf :thefox.spec.collection/collection)
+(s/def ::partOf (uri-or-thing? :thefox.spec.collection/collection))
