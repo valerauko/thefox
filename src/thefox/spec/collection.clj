@@ -1,8 +1,7 @@
 (ns thefox.spec.collection
   (:require [clojure.spec.alpha :as s]
             [thefox.core :refer [collection-types]]
-            [thefox.spec.util :refer :all]
-            [thefox.spec.object]))
+            [thefox.spec.util :refer :all]))
 
 (s/def ::type (into #{} collection-types))
 (s/def ::totalItems nat-int?)

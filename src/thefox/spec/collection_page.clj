@@ -1,4 +1,4 @@
-(ns thefox.spec.collection
+(ns thefox.spec.collection-page
   (:require [clojure.spec.alpha :as s]
             [thefox.spec.util :refer :all]
             [thefox.spec.collection]))

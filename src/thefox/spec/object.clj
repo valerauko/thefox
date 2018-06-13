@@ -2,12 +2,12 @@
   (:require [clojure.spec.alpha :as s]
             [thefox.spec.util :refer :all]
             [thefox.spec.image]
-            [thefox.spec.link]
+            [thefox.spec.link :refer [str-uri]]
             [thefox.spec.actor]
             [thefox.spec.collection]))
 
 ; HACK: you can't type in keywords containing @ so it takes hacky workarounds
-(def context-kw "thefox.spec.object" "@context"))
+(def context-kw (keyword "thefox.spec.object" "@context"))
 ; HACK: worse even while spec accepts it when provided to register a spec,
 ; it can't look it up without using eval around the (s/def)
 (eval `(s/def ~context-kw (uri-or-things? map?)))
@@ -19,6 +19,7 @@
 
 ; FIXME: type can be an array and that should be handled
 (s/def ::type string?)
+(s/def ::mediaType string?)
 
 (s/def ::content string?)
 (s/def ::contentMap ::lang-string)

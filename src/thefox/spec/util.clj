@@ -1,12 +1,6 @@
 (ns thefox.spec.util
   (:require [clojure.spec.alpha :as s]
-            [thefox.spec.link]))
-
-(defn str-uri?
-  "Checks whether a string can be a valid URI."
-  [string]
-  (try (uri? (new java.net.URI string))
-       (catch Exception e false)))
+            [thefox.spec.link :refer [str-uri?]]))
 
 (defn uri-or-thing?
   "Valid if a string URI or something that passes the given predicate."
