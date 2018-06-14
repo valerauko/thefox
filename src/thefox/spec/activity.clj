@@ -1,5 +1,5 @@
 (ns thefox.spec.activity
-  (:require [clojure.spec.alpha :as s
+  (:require [clojure.spec.alpha :as s]
             [thefox.spec.object :as obj]
             [thefox.spec.actor :as actor]))
 
