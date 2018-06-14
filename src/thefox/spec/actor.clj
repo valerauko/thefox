@@ -3,5 +3,5 @@
             [thefox.core :refer [actor-types]]))
 
 (s/def ::type (into #{} actor-types))
-(s/def ::actor (s/and ::object
+(s/def ::actor (s/and :thefox.spec.object/object
                       (s/keys :req [::type])))

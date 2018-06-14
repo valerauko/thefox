@@ -1,10 +1,10 @@
 (ns thefox.spec.object
   (:require [clojure.spec.alpha :as s]
             [thefox.spec.util :refer :all]
-            [thefox.spec.image]
-            [thefox.spec.link :refer [str-uri]]
-            [thefox.spec.actor]
-            [thefox.spec.collection]))
+            [thefox.spec.image :as image]
+            [thefox.spec.link :as link]
+            [thefox.spec.actor :as actor]
+            [thefox.spec.collection :as collection]))
 
 ; HACK: you can't type in keywords containing @ so it takes hacky workarounds
 (def context-kw (keyword "thefox.spec.object" "@context"))
@@ -60,18 +60,18 @@
 (s/def ::preview (uri-or-thing? ::object))
 (s/def ::tag (uri-or-things? ::object))
 
-(s/def ::image (uri-or-thing? :thefox.spec.image/image))
-(s/def ::icon (uri-or-thing? :thefox.spec.image/image))
+(s/def ::image (uri-or-thing? ::image/image))
+(s/def ::icon (uri-or-thing? ::image/image))
 
-(s/def ::attributedTo (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::audience (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::generator (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::to (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::bto (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::cc (uri-or-things? :thefox.spec.actor/actor))
-(s/def ::bcc (uri-or-things? :thefox.spec.actor/actor))
+(s/def ::attributedTo (uri-or-things? ::actor/actor))
+(s/def ::audience (uri-or-things? ::actor/actor))
+(s/def ::generator (uri-or-things? ::actor/actor))
+(s/def ::to (uri-or-things? ::actor/actor))
+(s/def ::bto (uri-or-things? ::actor/actor))
+(s/def ::cc (uri-or-things? ::actor/actor))
+(s/def ::bcc (uri-or-things? ::actor/actor))
 
 (s/def ::location (uri-or-thing? ::object))
-(s/def ::url (uri-or-things? :thefox.spec.link/link))
+(s/def ::url (uri-or-things? ::link/link))
 
-(s/def ::replies (uri-or-thing? :thefox.spec.collection/collection))
+(s/def ::replies (uri-or-thing? ::collection/collection))

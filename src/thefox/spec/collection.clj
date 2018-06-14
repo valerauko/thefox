@@ -9,7 +9,7 @@
 ; it can be sorted by just about anything so can't really validate that
 (s/def ::orderedItems (uri-or-things? :thefox.spec.object/object))
 (s/def ::collection
-  (s/and ::object
+  (s/and :thefox.spec.object/object
          (s/keys :req [::type]
                  :opt [::totalItems ::current ::first ::last
                        ::items ::orderedItems])))

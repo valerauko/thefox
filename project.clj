@@ -7,4 +7,5 @@
                  [org.clojure/data.codec "0.1.1"]
                  [org.bouncycastle/bcprov-jdk16 "1.46"]
                  [cheshire "5.8.0"]
-                 [clj-http "3.9.0"]])
+                 [clj-http "3.9.0"]]
+  :profiles {:dev {:dependencies [[org.clojure/test.check "0.9.0"]]}})
